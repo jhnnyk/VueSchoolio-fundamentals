@@ -13,9 +13,9 @@
           v-model="newItem"
           type="text"
           placeholder="Add an item"
-          @keyup.enter="items.push(newItem)"
+          @keyup.enter="saveItem"
         />
-        <button class="btn btn-primary" @click="items.push(newItem)">
+        <button class="btn btn-primary" @click="saveItem">
           Save Item
         </button>
       </div>
@@ -32,6 +32,12 @@
           header: 'shopping list app',
           newItem: '',
           items: ['10 party hats', '2 board games', '20 cups']
+        },
+        methods: {
+          saveItem: function() {
+            this.items.push(this.newItem);
+            this.newItem = '';
+          }
         }
       });
     </script>
